@@ -1,0 +1,126 @@
+aid: epex-spot
+url: https://raw.githubusercontent.com/api-evangelist/epex-spot/refs/heads/main/apis.yml
+name: EPEX SPOT
+kind: company
+description: EPEX SPOT SE, the European Power Exchange, operates the organised
+  short-term electricity markets across thirteen European countries - day-ahead
+  and intraday auctions on the MATS trading system and continuous intraday
+  trading on the M7 trading system. Day-ahead prices set on EPEX SPOT are the
+  reference for much of the European power sector. EPEX SPOT exposes real
+  machine-readable interfaces, but none of them are open self-serve APIs -
+  trading APIs (MATS, M7) require exchange membership, and read-only market
+  data APIs and SFTP file feeds require a paid Market Data Services
+  subscription ordered through the EEX Group Webshop.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Day-Ahead Prices
+- Electricity
+- Energy Markets
+- Power Exchange
+- Intraday Trading
+- Market Data
+- Auctions
+- Europe
+created: '2026-07-11'
+modified: '2026-07-11'
+specificationVersion: '0.19'
+apis:
+- aid: epex-spot:epex-spot-day-ahead-intraday-auction-market-data-api
+  name: EPEX SPOT Day-Ahead and Intraday Auction Market Data API
+  tags:
+  - Day-Ahead Prices
+  - Auctions
+  - Market Results
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.epexspot.com/en/marketdataservices
+  properties:
+  - url: https://www.epexspot.com/en/marketdataservices
+    type: Documentation
+  - url: https://webshop.eex-group.com/epex-spot-public-market-data
+    type: Pricing
+  description: Read-only API subscription (Day-Ahead and pan-EU Intraday API
+    Read-only, EUR 1,040.00/month for internal usage) delivering day-ahead and
+    intraday auction results - prices and volumes - for all market areas where
+    EPEX SPOT operates, sourced from the MATS auction trading system.
+    Subscription-gated through the EEX Group Webshop; endpoints are only
+    documented to subscribers, so none are modeled here (endpointsModeled).
+- aid: epex-spot:epex-spot-continuous-intraday-market-data-api
+  name: EPEX SPOT Continuous Intraday Market Data API
+  tags:
+  - Intraday Trading
+  - Trades
+  - Order Book
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.epexspot.com/en/marketdataservices
+  properties:
+  - url: https://www.epexspot.com/en/marketdataservices
+    type: Documentation
+  - url: https://webshop.eex-group.com/epex-spot-public-market-data
+    type: Pricing
+  description: Read-only API subscription (Continuous API Read-only, EUR
+    3,360.00/month for internal usage) giving real-time access to production
+    data - all trades and orders - on the continuous intraday market operated
+    on the M7 trading system across EPEX SPOT market areas.
+    Subscription-gated through the EEX Group Webshop; endpoints are only
+    documented to subscribers, so none are modeled here (endpointsModeled).
+- aid: epex-spot:epex-spot-mats-auction-trading-api
+  name: EPEX SPOT MATS Auction Trading API
+  tags:
+  - Auctions
+  - Trading
+  - Order Management
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.epexspot.com/en/technology
+  properties:
+  - url: https://www.epexspot.com/en/technology
+    type: Documentation
+  - url: https://www.epexspot.com/sites/default/files/download_center_files/MATS%20API%20Introduction%20v1.0%20-%20Light%20Package.pdf
+    type: APIReference
+  description: Member trading API for the Multiple Auction Trading System
+    (MATS), the platform that replaced the legacy ETS system for all EPEX SPOT
+    auction markets. Supports submission of linear, block, scalable complex,
+    and Future-To-Spot orders, plus market results retrieval over REST -
+    market result reports (CSV), trade reports (XML), and aggregated and
+    individual order results (JSON). Requires exchange membership; full
+    specifications are distributed to members and ISVs, so endpoints are not
+    modeled here (endpointsModeled).
+- aid: epex-spot:epex-spot-m7-intraday-trading-api
+  name: EPEX SPOT M7 Intraday Trading API
+  tags:
+  - Intraday Trading
+  - AMQP
+  - Algorithmic Trading
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.epexspot.com/en/technology
+  properties:
+  - url: https://www.epexspot.com/en/technology
+    type: Documentation
+  - url: https://www.epexspot.com/en/software-providers
+    type: Partners
+  description: Member trading API for the M7 trading system that runs all EPEX
+    SPOT continuous intraday markets. Clients exchange standardized messages
+    with M7 over an AMQP (Advanced Message Queuing Protocol) server - the
+    interface behind the large majority of automated intraday order flow on
+    the exchange and the integration point for the ISVs on the EPEX SPOT
+    software provider list. Requires exchange membership; specifications are
+    member-gated, so endpoints are not modeled here (endpointsModeled).
+common:
+- type: LinkedIn
+  url: https://www.linkedin.com/company/epex-spot
+- type: Website
+  url: https://www.epexspot.com
+- type: Documentation
+  url: https://www.epexspot.com/en/marketdataservices
+- type: Downloads
+  url: https://www.epexspot.com/en/downloads
+- type: MarketResults
+  url: https://www.epexspot.com/en/market-results
+- type: Pricing
+  url: https://webshop.eex-group.com/epex-spot-public-market-data
+- type: Plans
+  url: plans/epex-spot-plans-pricing.yml
+- type: Blog
+  url: https://www.epexspot.com/en/news
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

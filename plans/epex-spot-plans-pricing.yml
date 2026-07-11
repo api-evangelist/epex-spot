@@ -1,0 +1,248 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: EPEX SPOT
+providerId: epex-spot
+created: '2026-07-11'
+modified: '2026-07-11'
+reconciled: true
+tags:
+- Day-Ahead Prices
+- Electricity
+- Energy Markets
+- Power Exchange
+- Market Data
+- Plans
+description: >-
+  EPEX SPOT market data is sold as monthly subscriptions through the EEX Group
+  Webshop, invoiced yearly. Two delivery families exist. File packages deliver
+  end-of-day (EOD) or historical (up to year-1) auction and continuous-market
+  data as CSV/Excel over SFTP or webshare for twelve market areas. Read-only
+  APIs deliver day-ahead and pan-EU intraday auction results, or all trades and
+  orders on the continuous market, in real time. Webshop prices cover internal
+  usage within a single legal entity only; external usage (display on a
+  website, indexation, redistribution, marketing use) is quoted individually
+  by the market data team. Trading access (MATS and M7 APIs) is not a market
+  data product - it comes with exchange membership and is priced under
+  membership and transaction fee schedules, not listed here.
+notes: >-
+  Prices captured from the EEX Group Webshop on 2026-07-11, displayed per
+  month and invoiced on a yearly basis. Confirm current prices in the webshop
+  before purchase; external-usage pricing requires a quote from
+  marketdata.sales@epexspot.com.
+sources:
+- https://webshop.eex-group.com/epex-spot-public-market-data
+- https://www.epexspot.com/en/marketdataservices
+plans:
+- id: epex-spot-auctions-eod
+  name: Auctions Data Package - EOD (12 market areas)
+  type: paid
+  description: >-
+    End-of-day day-ahead and intraday auction results files (CSV/Excel over
+    SFTP or webshare) covering twelve EPEX SPOT market areas. Internal usage
+    only.
+  entries:
+  - label: Monthly Subscription
+    name: auctions_eod
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 665.00 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Day-Ahead Auction Results
+  - name: Intraday Auction Results
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-auctions-histo
+  name: Auctions Data Package - Historical (up to Y-1)
+  type: paid
+  description: >-
+    Historical day-ahead and intraday auction results up to the previous year
+    across twelve market areas. Internal usage only.
+  entries:
+  - label: Monthly Subscription
+    name: auctions_histo
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 574.17 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Historical Auction Results
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-continuous-eod
+  name: Continuous Market Data Package - EOD (12 market areas)
+  type: paid
+  description: >-
+    End-of-day files with all trades and results on the continuous intraday
+    market across twelve market areas. Internal usage only.
+  entries:
+  - label: Monthly Subscription
+    name: continuous_eod
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 636.67 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Continuous Intraday Trades
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-continuous-histo
+  name: Continuous Market Data Package - Historical (up to Y-1)
+  type: paid
+  description: >-
+    Historical continuous intraday market data up to the previous year across
+    twelve market areas. Internal usage only.
+  entries:
+  - label: Monthly Subscription
+    name: continuous_histo
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 504.17 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Historical Continuous Intraday Data
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-auctions-continuous-eod
+  name: Auctions and Continuous Data Package - EOD (12 market areas)
+  type: paid
+  description: >-
+    Combined end-of-day package - auction results plus all continuous
+    intraday trades - across twelve market areas. Internal usage only.
+  entries:
+  - label: Monthly Subscription
+    name: auctions_continuous_eod
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 973.33 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Day-Ahead and Intraday Auction Results
+  - name: Continuous Intraday Trades
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-auctions-continuous-histo
+  name: Auctions and Continuous Data Package - Historical (up to Y-1)
+  type: paid
+  description: >-
+    Combined historical package - auction and continuous market data up to the
+    previous year - across twelve market areas. Internal usage only.
+  entries:
+  - label: Monthly Subscription
+    name: auctions_continuous_histo
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 776.67 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Historical Auction Results
+  - name: Historical Continuous Intraday Data
+  - name: SFTP / Webshare Delivery
+- id: epex-spot-day-ahead-intraday-api
+  name: Day-Ahead and pan-EU Intraday API - Read-only
+  type: paid
+  description: >-
+    Read-only API subscription delivering day-ahead and pan-EU intraday
+    auction results on all market areas where EPEX SPOT operates. Internal
+    usage only; endpoint documentation provided to subscribers.
+  entries:
+  - label: Monthly Subscription
+    name: day_ahead_intraday_api
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 1,040.00 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Day-Ahead Auction Results API
+  - name: Pan-EU Intraday Auction Results API
+- id: epex-spot-continuous-api
+  name: Continuous API - Read-only
+  type: paid
+  description: >-
+    Read-only API subscription with real-time access to production data - all
+    trades and orders - on the continuous intraday market (M7). Internal usage
+    only; endpoint documentation provided to subscribers.
+  entries:
+  - label: Monthly Subscription
+    name: continuous_api
+    type: flat
+    metric: subscription
+    limit: -1
+    timeFrame: month
+    geo: europe
+    unit: 1
+    price: EUR 3,360.00 per month (invoiced yearly)
+    userMultiplied: false
+  elements:
+  - name: Continuous Intraday Trades and Orders API
+  - name: Real-Time Production Data
+- id: epex-spot-external-usage
+  name: External Usage / Redistribution
+  type: enterprise
+  description: >-
+    Any external usage of EPEX SPOT data - display on a website, indexation,
+    redistribution, or use in marketing materials - is priced by individual
+    quote and governed by a separate data use agreement.
+  entries:
+  - label: Custom Quote
+    name: external_usage
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: europe
+    unit: 1
+    price: custom quote from marketdata.sales@epexspot.com
+    userMultiplied: false
+  elements:
+  - name: Redistribution Rights
+  - name: Display and Indexation Rights
+  - name: Data Use Agreement
+- id: epex-spot-isv-offer
+  name: ISV Offer (Simulation Environment)
+  type: enterprise
+  description: >-
+    For Independent Software Vendors - access to a dedicated environment for
+    developing real-time interfaces with EPEX SPOT trading systems (MATS and
+    M7). Priced on request.
+  entries:
+  - label: ISV Agreement
+    name: isv_offer
+    type: flat
+    metric: contract
+    limit: -1
+    timeFrame: year
+    geo: europe
+    unit: 1
+    price: on request
+    userMultiplied: false
+  elements:
+  - name: Dedicated Development Environment
+  - name: Trading System Interface Development
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

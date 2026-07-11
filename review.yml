@@ -1,0 +1,118 @@
+aid: epex-spot
+name: EPEX SPOT
+review:
+  question: Does EPEX SPOT expose a documented public WebSocket API?
+  answer: false
+  date: '2026-07-11'
+  reviewer: API Evangelist
+  asyncapiSpecCreated: false
+  asyncapiScopeNote: |
+    No AsyncAPI document was authored. EPEX SPOT's own machine interfaces are
+    a member-gated AMQP trading API (M7, continuous intraday), a member-gated
+    REST trading and results API (MATS, auctions), and subscription-gated
+    read-only market data APIs and SFTP file feeds sold through the EEX Group
+    Webshop. None of these are publicly documented - specifications are
+    distributed to exchange members, ISVs, and paying market data subscribers -
+    so there is no public server-push surface to model honestly. The related
+    EEX Cloud Stream API is a WebSocket product, but it covers EEX natural gas
+    spot markets, not EPEX SPOT power markets, and is itself a paid
+    subscription.
+findings:
+  summary: |
+    EPEX SPOT does not publish a documented public WebSocket API, and more
+    broadly has no open self-serve developer API at all. The exchange runs
+    day-ahead and intraday auctions on MATS (Multiple Auction Trading System,
+    the successor to the legacy ETS system) and continuous intraday trading on
+    M7. Members trade through the MATS API (REST order submission for linear,
+    block, scalable complex, and Future-To-Spot orders, plus results retrieval
+    as CSV market result reports, XML trade reports, and JSON aggregated and
+    individual order results) and the M7 API (AMQP messaging, the channel
+    behind the large majority of automated intraday order flow). Read-only
+    market data is a paid Market Data Services subscription via the EEX Group
+    Webshop - a Day-Ahead and pan-EU Intraday API (EUR 1,040.00/month internal
+    usage) covering auction results on all market areas, a Continuous API
+    (EUR 3,360.00/month internal usage) covering all trades and orders on the
+    continuous market, and SFTP/webshare CSV/Excel file packages. No ws:// or
+    wss:// endpoint is documented anywhere in EPEX SPOT's public materials.
+  accessModel: |
+    Fully gated. Trading APIs (MATS, M7) require exchange membership and, in
+    practice, connection through software on EPEX SPOT's ISV list; API
+    specifications are distributed under that relationship. Market data APIs
+    and file feeds require a paid subscription ordered in the EEX Group
+    Webshop; webshop prices cover internal usage within one legal entity, and
+    external usage (redistribution, display, indexation) is quoted
+    individually by marketdata.sales@epexspot.com. Free public access is
+    limited to the browsable market results pages on epexspot.com (no
+    documented API; community scrapers exist), and EPEX day-ahead prices are
+    freely retrievable from the ENTSO-E Transparency Platform REST API.
+  transports:
+    - protocol: AMQP
+      scheme: amqps
+      documented: false
+      note: M7 trading API for continuous intraday markets. Member/ISV-gated;
+        specifications not public.
+    - protocol: REST
+      scheme: https
+      documented: false
+      note: MATS auction trading and results API (CSV/XML/JSON outputs) and the
+        read-only market data API subscriptions. Documentation is gated to
+        members and market data subscribers.
+    - protocol: SFTP
+      scheme: sftp
+      documented: true
+      note: Market data file packages (end-of-day and historical CSV/Excel)
+        delivered over SFTP/webshare; file specifications published via the
+        EEX Group Webshop, access paid.
+    - protocol: WebSocket
+      scheme: wss
+      documented: false
+      note: No WebSocket endpoint documented for EPEX SPOT. The EEX Cloud
+        Stream API (WebSocket, JSON/Protobuf) exists within EEX Group but
+        covers EEX natural gas spot markets only.
+  endpointsModeled: true
+  endpointsModeledNote: |
+    All four APIs in apis.yml are real, named EPEX SPOT interfaces, but their
+    endpoint-level documentation is gated behind membership or paid
+    subscription. No endpoint paths were fabricated: no OpenAPI, AsyncAPI, or
+    collection artifacts were created for this entry, and apis.yml omits
+    baseURL values rather than inventing them.
+sources:
+  - url: https://www.epexspot.com/en/marketdataservices
+    type: Documentation
+    note: Market Data Services overview - FTP/webshare file access, API access
+      to production data (all trades and orders), ISV offer. Page blocks
+      automated fetching (403); content confirmed via search snapshots.
+  - url: https://webshop.eex-group.com/epex-spot-public-market-data
+    type: Pricing
+    note: EEX Group Webshop product list and monthly prices for EPEX SPOT
+      market data packages and read-only APIs (captured 2026-07-11).
+  - url: https://www.epexspot.com/en/technology
+    type: Documentation
+    note: Trading technology page - MATS for auctions, M7 for continuous
+      trading, APIs available for both.
+  - url: https://www.epexspot.com/sites/default/files/download_center_files/MATS%20API%20Introduction%20v1.0%20-%20Light%20Package.pdf
+    type: APIReference
+    note: MATS API Introduction (light package) - order types and REST results
+      retrieval formats (CSV/XML/JSON).
+  - url: https://www.convex-energy.com/insights/a-beginner-s-guide-to-the-m7-application-programming-interface
+    type: Article
+    note: Third-party guide confirming the M7 API communicates over an AMQP
+      server between participant and exchange.
+  - url: https://www.epexspot.com/en/software-providers
+    type: Partners
+    note: ISV list - vendors providing M7/MATS API connectivity to members.
+  - url: https://www.eex.com/en/market-data/eex-group-datasource/rest-api
+    type: Documentation
+    note: EEX Group DataSource REST API (OpenAPI 3.0, JSON/XML) - the group
+      distribution channel; subscription-gated. WebSocket streaming within
+      EEX Group (Cloud Stream API) is gas-spot only.
+actions:
+  asyncapiPath: null
+  apisYmlUpdated: true
+  reason: |
+    No public WebSocket surface exists to model - M7 is AMQP and member-gated,
+    MATS and the market data APIs are REST and gated, and the only WebSocket
+    product in the wider EEX Group covers gas spot markets rather than EPEX
+    SPOT power markets. The entry records the real gated interfaces with
+    sourced pricing and marks endpoints as modeled-out rather than fabricating
+    an endpoint surface.
