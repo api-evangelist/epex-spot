@@ -105,6 +105,8 @@ apis:
     software provider list. Requires exchange membership; specifications are
     member-gated, so endpoints are not modeled here (endpointsModeled).
 common:
+- type: DomainSecurity
+  url: security/epex-spot-domain-security.yml
 - type: LinkedIn
   url: https://www.linkedin.com/company/epex-spot
 - type: Website
