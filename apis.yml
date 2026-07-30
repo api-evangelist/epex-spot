@@ -11,7 +11,19 @@ description: EPEX SPOT SE, the European Power Exchange, operates the organised
   trading APIs (MATS, M7) require exchange membership, and read-only market
   data APIs and SFTP file feeds require a paid Market Data Services
   subscription ordered through the EEX Group Webshop.
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: paid
+  onboarding: unknown
+  trial: false
+  try_now: false
+  public: false
+  label: Paid
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/epex-spot.png
 tags:
 - Day-Ahead Prices
 - Electricity
