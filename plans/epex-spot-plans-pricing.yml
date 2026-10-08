@@ -251,3 +251,92 @@ plans:
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - subscription
+  units:
+  - negotiated
+  - period
+  plans:
+  - name: Auctions Data Package - EOD (12 market areas)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Auctions Data Package - Historical (up to Y-1)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Continuous Market Data Package - EOD (12 market areas)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Continuous Market Data Package - Historical (up to Y-1)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Auctions and Continuous Data Package - EOD (12 market areas)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Auctions and Continuous Data Package - Historical (up to Y-1)
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Day-Ahead and pan-EU Intraday API - Read-only
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: Continuous API - Read-only
+    access: paid
+    model: subscription
+    model_how: derived
+    units:
+    - period
+    periods:
+    - month
+  - name: External Usage / Redistribution
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: ISV Offer (Simulation Environment)
+    access: enterprise
+    model: subscription
+    model_how: derived
+    units:
+    - negotiated
+    periods:
+    - year
