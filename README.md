@@ -1,4 +1,4 @@
-# EPEX SPOT (epex-spot)
+# EPEX SPOT
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -64,119 +64,95 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-EPEX SPOT SE, the European Power Exchange, operates the organised short-term electricity markets across thirteen European countries - day-ahead and intraday auctions on the MATS trading system and continuous intraday trading on the M7 trading system. Day-ahead prices set on EPEX SPOT are the reference for much of the European power sector.
+EPEX SPOT SE, the European Power Exchange, operates the organised short-term electricity markets across thirteen European countries - day-ahead and intraday auctions on the MATS trading system and continuous intraday trading on the M7 trading system. Day-ahead prices set on EPEX SPOT are the reference for much of the European power sector. EPEX SPOT exposes real machine-readable interfaces, but none of them are open self-serve APIs - trading APIs (MATS, M7) require exchange membership, and read-only market data APIs and SFTP file feeds require a paid Market Data Services subscription ordered through the EEX Group Webshop.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/epex-spot/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/epex-spot/refs/heads/main/apis.yml)
+**Areas:** Day-Ahead Prices · Electricity · Energy Markets · Power Exchange · Intraday Trading · Market Data · Auctions · Europe
 
-## Access Model (Read This First)
+## EPEX SPOT on APIs.io
 
-EPEX SPOT has real machine-readable interfaces, but **no open self-serve developer API**. Everything is gated one of two ways:
+Everything profiled for EPEX SPOT is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/epex-spot/](https://apis.io/providers/epex-spot/)** — or go straight to one of the APIs or properties below.
 
-- **Trading APIs (MATS and M7)** require exchange membership. MATS is the Multiple Auction Trading System (successor to ETS) covering all day-ahead and intraday auctions, with REST-based order submission and results retrieval (CSV/XML/JSON). M7 runs the continuous intraday markets and is accessed over AMQP, typically through software from EPEX SPOT's [ISV list](https://www.epexspot.com/en/software-providers). Full API specifications are distributed only to members and ISVs.
-- **Market Data Services** are paid subscriptions ordered through the [EEX Group Webshop](https://webshop.eex-group.com/epex-spot-public-market-data): read-only APIs (Day-Ahead and pan-EU Intraday API Read-only at EUR 1,040/month; Continuous API Read-only at EUR 3,360/month) and SFTP/webshare file packages (CSV/Excel, end-of-day and historical). Webshop prices cover internal usage within one legal entity; external usage (display, redistribution, indexation) is quoted individually by marketdata.sales@epexspot.com.
+### APIs (4)
 
-Because endpoint documentation sits behind those gates, this entry does not model or fabricate an endpoint surface - the APIs listed in `apis.yml` are the real, named interfaces, marked `endpointsModeled` with no invented paths.
+- [EPEX SPOT Day-Ahead and Intraday Auction Market Data API](https://apis.io/apis/epex-spot/epex-spot-day-ahead-intraday-auction-market-data-api/) — Read-only API subscription (Day-Ahead and pan-EU Intraday API Read-only, EUR 1,040.00/month for internal usage) delivering day-ahead and intraday auction…
+- [EPEX SPOT Continuous Intraday Market Data API](https://apis.io/apis/epex-spot/epex-spot-continuous-intraday-market-data-api/) — Read-only API subscription (Continuous API Read-only, EUR 3,360.00/month for internal usage) giving real-time access to production data - all trades and…
+- [EPEX SPOT MATS Auction Trading API](https://apis.io/apis/epex-spot/epex-spot-mats-auction-trading-api/) — Member trading API for the Multiple Auction Trading System (MATS), the platform that replaced the legacy ETS system for all EPEX SPOT auction markets.…
+- [EPEX SPOT M7 Intraday Trading API](https://apis.io/apis/epex-spot/epex-spot-m7-intraday-trading-api/) — Member trading API for the M7 trading system that runs all EPEX SPOT continuous intraday markets. Clients exchange standardized messages with M7 over an…
 
-**Free alternatives for day-ahead prices:** EPEX SPOT publishes browsable (not API) market results at [epexspot.com/en/market-results](https://www.epexspot.com/en/market-results), and EPEX day-ahead prices for most bidding zones are freely available through the ENTSO-E Transparency Platform RESTful API.
+### Published properties
 
-## Tags
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-- Day-Ahead Prices
-- Electricity
-- Energy Markets
-- Power Exchange
-- Intraday Trading
-- Market Data
-- Auctions
-- Europe
+#### Security (1)
 
-## Timestamps
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Created:** 2026-07-11
-- **Modified:** 2026-07-11
+- [Epex Spot Domain Security](https://apis.io/security/epex-spot/epex-spot-domain-security/)
 
-## APIs
+#### Plans and pricing (1)
 
-### EPEX SPOT Day-Ahead and Intraday Auction Market Data API
+Published plans, tiers and prices.
 
-Read-only API subscription (Day-Ahead and pan-EU Intraday API Read-only, EUR 1,040.00/month for internal usage) delivering day-ahead and intraday auction results - prices and volumes - for all market areas where EPEX SPOT operates, sourced from the MATS auction trading system. Subscription-gated; endpoints documented to subscribers only.
+- [Epex Spot Plans Pricing](https://apis.io/plans/epex-spot/epex-spot-plans-pricing/)
 
-- **Human URL:** [https://www.epexspot.com/en/marketdataservices](https://www.epexspot.com/en/marketdataservices)
+## Where to find this API
 
-#### Tags
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- Day-Ahead Prices
-- Auctions
-- Market Results
-
-#### Properties
-
-- [Documentation](https://www.epexspot.com/en/marketdataservices)
-- [Pricing](https://webshop.eex-group.com/epex-spot-public-market-data)
-
-### EPEX SPOT Continuous Intraday Market Data API
-
-Read-only API subscription (Continuous API Read-only, EUR 3,360.00/month for internal usage) giving real-time access to production data - all trades and orders - on the continuous intraday market operated on the M7 trading system. Subscription-gated; endpoints documented to subscribers only.
-
-- **Human URL:** [https://www.epexspot.com/en/marketdataservices](https://www.epexspot.com/en/marketdataservices)
-
-#### Tags
-
-- Intraday Trading
-- Trades
-- Order Book
-
-#### Properties
-
-- [Documentation](https://www.epexspot.com/en/marketdataservices)
-- [Pricing](https://webshop.eex-group.com/epex-spot-public-market-data)
-
-### EPEX SPOT MATS Auction Trading API
-
-Member trading API for the Multiple Auction Trading System (MATS), the platform that replaced the legacy ETS system for all EPEX SPOT auction markets. Supports linear, block, scalable complex, and Future-To-Spot orders, plus market results retrieval over REST - market result reports (CSV), trade reports (XML), and aggregated and individual order results (JSON). Requires exchange membership.
-
-- **Human URL:** [https://www.epexspot.com/en/technology](https://www.epexspot.com/en/technology)
-
-#### Tags
-
-- Auctions
-- Trading
-- Order Management
-
-#### Properties
-
-- [Documentation](https://www.epexspot.com/en/technology)
-- [API Reference (MATS API Introduction, PDF)](https://www.epexspot.com/sites/default/files/download_center_files/MATS%20API%20Introduction%20v1.0%20-%20Light%20Package.pdf)
-
-### EPEX SPOT M7 Intraday Trading API
-
-Member trading API for the M7 trading system that runs all EPEX SPOT continuous intraday markets. Clients exchange standardized messages with M7 over an AMQP server - the interface behind the large majority of automated intraday order flow on the exchange and the integration point for listed ISVs. Requires exchange membership.
-
-- **Human URL:** [https://www.epexspot.com/en/technology](https://www.epexspot.com/en/technology)
-
-#### Tags
-
-- Intraday Trading
-- AMQP
-- Algorithmic Trading
-
-#### Properties
-
-- [Documentation](https://www.epexspot.com/en/technology)
-- [Partners (ISV list)](https://www.epexspot.com/en/software-providers)
-
-## Common Properties
-
-- [LinkedIn](https://www.linkedin.com/company/epex-spot)
 - [Website](https://www.epexspot.com)
 - [Documentation](https://www.epexspot.com/en/marketdataservices)
-- [Downloads](https://www.epexspot.com/en/downloads)
-- [Market Results](https://www.epexspot.com/en/market-results)
 - [Pricing](https://webshop.eex-group.com/epex-spot-public-market-data)
-- [Plans](plans/epex-spot-plans-pricing.yml)
 - [Blog](https://www.epexspot.com/en/news)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 12.5** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 0.0 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 18.4 |
+
+**Agent readiness 0.0** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | — |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 4.9** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/epex-spot/](https://apis.io/providers/epex-spot/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for EPEX SPOT: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/epex-spot/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
